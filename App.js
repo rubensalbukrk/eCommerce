@@ -1,20 +1,38 @@
+import 'react-native-gesture-handler'
+import React, {useContext, useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import MainStack from './src/MainStack';
+import MainApp from './src/MainApp';
+import { useFonts } from 'expo-font';
+import Preload from './src/stacks/Preload';
+
 
 export default function App() {
+  
+  const [fontsLoaded] = useFonts({
+    'TsukimiRounded Light': require('./assets/font/Tsuki-Light.ttf'),
+    'TsukimiRounded Medium': require('./assets/font/Tsuki-Medium.ttf'),
+    'TsukimiRounded Bold': require('./assets/font/Tsuki-Bold.ttf'),
+    'Doppio One': require('./assets/font/DoppioOne.ttf')
+
+  });
+  
+  if (!fontsLoaded) {
+    return <Preload />;
+  }
+
+
+  const auth = true;
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+
+    <NavigationContainer>
+
+    {!auth ? <MainStack /> : <MainApp/> }
+
+    <StatusBar hidden={true} />
+    
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

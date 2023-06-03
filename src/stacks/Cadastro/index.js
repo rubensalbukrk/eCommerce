@@ -1,0 +1,8 @@
+import React, {useContext, useState} from 'react';
+import { View } from 'react-native';
+
+export default function Cadastro() {
+ return (
+   <View/>
+  );
+}
