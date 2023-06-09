@@ -14,7 +14,8 @@ export default function App() {
     'TsukimiRounded Light': require('./assets/font/Tsuki-Light.ttf'),
     'TsukimiRounded Medium': require('./assets/font/Tsuki-Medium.ttf'),
     'TsukimiRounded Bold': require('./assets/font/Tsuki-Bold.ttf'),
-    'Doppio One': require('./assets/font/DoppioOne.ttf')
+    'Doppio One': require('./assets/font/DoppioOne.ttf'),
+    'Electrolize': require('./assets/font/Electrolize-Regular.ttf')
 
   });
   
@@ -23,13 +24,13 @@ export default function App() {
   }
 
 
-  const auth = true;
+  const auth = false;
 
   return (
 
     <NavigationContainer>
 
-    {!auth ? <MainStack /> : <MainApp/> }
+    <MainApp />
 
     <StatusBar hidden={true} />
     

@@ -10,6 +10,9 @@ export const GlobalStyles = StyleSheet.create({
     },
     FontBold: {
         fontFamily: 'TsukimiRounded Bold'
+    },
+    FontSystem: {
+        fontFamily: 'Electrolize'
     }
 
 })

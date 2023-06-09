@@ -1,36 +1,56 @@
-import React, {useContext, useState} from 'react';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import React from 'react';
+import { View, Text } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet } from 'react-native';
 import Home from './pages/Home';
 import Colletions from './pages/Colletions';
 import Favorites from './pages/Favorites';
 import User from './pages/User';
-import Cart from './pages/Cart';
+import Header from '../components/header';
 import { Feather } from 'react-native-vector-icons'
-import { FadeInDown } from 'react-native-reanimated';
 
 
-const Tab = createMaterialBottomTabNavigator();
+
+const Tab = createBottomTabNavigator();
 
 export default function MainApp() {
 
 
  return (
     <Tab.Navigator
-    initialRouteName='Home' 
-    shifting={true}
-    activeColor='red'
-    sceneAnimationType='shifting'
-    sceneAnimationEnabled={true}
-    barStyle={styles.tabBar}>
+        initialRouteName='Home' 
+
+        screenOptions={{
+            header: () => {
+                return (
+                    <View>
+                        <Header />
+                    </View>
+                )
+            },
+      
+            tabBarShowLabel: false,
+            tabBarIconStyle: true,
+            tabBarActiveTintColor: '#FFF',
+            tabBarItemStyle: {
+                    width: 20,
+                    height: 60,
+                    alignItems: 'center'
+                   
+            },
+
+            tabBarStyle: styles.tabBar
+        }}
+    
+    >
         
         <Tab.Group>
                 <Tab.Screen
                 options={{
                     
                         title: 'Inicio',
-                        tabBarIcon: ({size, color}) => (
-                            <Feather name="home" size={32} color={color} />
+                        tabBarIcon: ({color, focused}) => (
+                            <Feather name="home" size={focused ? 42 : 28} color={color} />
                         )
                 }}
                 name="Home" 
@@ -40,8 +60,8 @@ export default function MainApp() {
                 options={{
                         title: 'Coleções',
                         tabBarBadge: 2,
-                        tabBarIcon: ({size, color}) => (
-                            <Feather name="menu" size={32} color={color} />
+                        tabBarIcon: ({color, focused}) => (
+                            <Feather name="menu" size={focused ? 42 : 22} color={color} />
                         )
                 }}
                  
@@ -51,8 +71,8 @@ export default function MainApp() {
                 <Tab.Screen
                 options={{
                         title: 'Favoritos',
-                        tabBarIcon: ({size, color}) => (
-                            <Feather name="heart" size={32} color={color} />
+                        tabBarIcon: ({color, focused}) => (
+                            <Feather name="heart" size={focused ? 42 : 22} color={color} />
                         ) 
                 }}
                 name="Favorites" 
@@ -61,8 +81,9 @@ export default function MainApp() {
                 <Tab.Screen
                 options={{
                         title: 'Eu',
-                        tabBarIcon: ({size, color}) => (
-                            <Feather name="user" size={32} color={color} />
+                        
+                        tabBarIcon: ({color, focused}) => (
+                            <Feather name="user" size={focused ? 42 : 28} color={color} />
                         )
                 }} 
                 name="User" 
@@ -75,12 +96,14 @@ export default function MainApp() {
 
 const styles = StyleSheet.create({
     tabBar:{
-        position: 'absolute',
-        marginHorizontal: '5%',
-        marginBottom: '5%',
-        paddingVertical: 15,
-        paddingHorizontal: 15,
-        borderRadius: 50,
-        backgroundColor: '#0f0f0f'
+    
+        flex: -2,
+        alignSelf: 'center',
+        width: '90%',
+        height: '10%',
+        backgroundColor: '#000',
+        borderRadius: 30,
+        bottom: '2%',
+        paddingHorizontal: '2%'
     }
 })

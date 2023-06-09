@@ -44,22 +44,22 @@ const styles = StyleSheet.create({
   title: {
     color: '#ffff',
     fontWeight: '500',
-    fontSize: 42,
+    fontSize: 38,
     marginTop: '8%',
     marginLeft: '5%'
   },
   title2: {
     color: '#ffff',
     fontWeight: '500',
-    fontSize: 58,
-    marginTop: '8%',
+    fontSize: 42,
+    marginTop: '2%',
     marginLeft: '5%'
   },
   title3: {
     color: '#ffff',
     fontWeight: '500',
-    fontSize: 52,
-    marginTop: '5%',
+    fontSize: 53,
+    marginTop: '2%',
     marginLeft: '5%'
   },
   button: {
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 100,
     bottom: 0,
-    backgroundColor: 'rgba(255,255,255, 0.4)',
+    backgroundColor: 'rgba(255,255,255, 0.6)',
     shadowOpacity: '0.3',
     paddingLeft: 30,
     paddingRight: 30,
