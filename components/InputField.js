@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components/native';
+import styled from 'styled-components';
 
 export const AreaView = styled.View`
     display: flex;
@@ -17,18 +17,20 @@ export const InputArea = styled.View`
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 90%;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    justify-content: space-between;
+    width: 80%;
+    padding-left: 2%;
+    padding-right: 2%;
     height:  47px;
     border-radius: 10px;
     background-color: #ffffff;
     opacity: 0.9;
-    
-    margin-bottom: 0.9rem;
+    margin-left: 2%;
+
 
 `
 export const LabelInput = styled.Text`
+    width: 70%;
     height: 47px;
     font-size: 32px;
     color: #000;

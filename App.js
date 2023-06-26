@@ -6,7 +6,7 @@ import MainStack from './src/MainStack';
 import MainApp from './src/MainApp';
 import { useFonts } from 'expo-font';
 import Preload from './src/stacks/Preload';
-
+import Header from './components/header';
 
 export default function App() {
   
@@ -29,7 +29,7 @@ export default function App() {
   return (
 
     <NavigationContainer>
-
+      <Header />
     <MainApp />
 
     <StatusBar hidden={true} />

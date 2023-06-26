@@ -6,44 +6,37 @@ import Home from './pages/Home';
 import Colletions from './pages/Colletions';
 import Favorites from './pages/Favorites';
 import User from './pages/User';
-import Header from '../components/header';
+import Cart from './pages/Cart';
 import { Feather } from 'react-native-vector-icons'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function MainApp() {
 
 
  return (
+ 
+    
     <Tab.Navigator
         initialRouteName='Home' 
 
         screenOptions={{
-            header: () => {
-                return (
-                    <View>
-                        <Header />
-                    </View>
-                )
-            },
-      
+            headerShown: false,
+    
             tabBarShowLabel: false,
             tabBarIconStyle: true,
             tabBarActiveTintColor: '#FFF',
-            tabBarItemStyle: {
-                    width: 20,
-                    height: 60,
-                    alignItems: 'center'
-                   
-            },
 
             tabBarStyle: styles.tabBar
         }}
     
     >
         
+           
         <Tab.Group>
                 <Tab.Screen
                 options={{
@@ -89,6 +82,13 @@ export default function MainApp() {
                 name="User" 
                 component={User} />
         </Tab.Group>
+        <Tab.Group screenOptions={{
+                presentation: 'modal',
+
+                tabBarButton: () => null
+            }} >
+                <Stack.Screen name="Cart" component={Cart} />
+            </Tab.Group>
 
    </Tab.Navigator>
   );
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
         flex: -2,
         alignSelf: 'center',
         width: '90%',
-        height: '10%',
+        height: '15%',
         backgroundColor: '#000',
         borderRadius: 30,
         bottom: '2%',
